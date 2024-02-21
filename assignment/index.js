@@ -10,7 +10,6 @@ app.use(express.json());
 
 app.post("/translate", async (req, res) => {
   try {
-
     const { text } = req.body;
     if (!text || typeof text !== "string") {
       return res
@@ -20,11 +19,7 @@ app.post("/translate", async (req, res) => {
             'Invalid request. Please provide a valid "text" field in the request body.',
         });
     }
-
-
     const translation = await translate(text, { to: "fr" });
-
-
     res.status(200).json({ translation: translation.text });
   } catch (error) {
     console.error("Translation error:", error);
@@ -37,7 +32,7 @@ app.post("/translate", async (req, res) => {
   }
 });
 
-// Start the server
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
