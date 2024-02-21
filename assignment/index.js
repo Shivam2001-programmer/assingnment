@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.post("/translate", async (req, res) => {
   try {
-    // Check if request body contains 'text' key
+
     const { text } = req.body;
     if (!text || typeof text !== "string") {
       return res
